@@ -176,7 +176,9 @@
         (state.showQR ? (
           '<div class="qrBox">' +
             '<div class="qrInner">' +
-              '<div class="qrFake">QR CODE<br/>' + esc(b.id) + '</div>' +
+              '<div id="qr"></div>'
+'<div id="qr"></div>'
+'<div id="qr"></div>' +
             '</div>' +
             '<p class="small" style="margin-top:8px;">Bu QR kodu tarayarak pasaport bilgilerine erişin (demo)</p>' +
           '</div>'
@@ -645,7 +647,7 @@
         '<p class="small" style="margin-top:6px;">Son Güncelleme: 15 Ocak 2025 | Versiyon: 1.0</p>' +
       '</div>';
 
-    createIconsSafe();
+   renderQRCodeIfNeeded();
   }
 
   function loadJSON() {
@@ -685,5 +687,26 @@
   });
 
   render();
+  function getPageUrl() {
+  var url = window.location.href.split("#")[0];
+  url = url.replace(/index\.html$/i, "");
+  return url;
+}
+
+function renderQRCodeIfNeeded() {
+  if (!state.showQR) return;
+  if (typeof QRCode === "undefined") return;
+
+  var el = document.getElementById("qr");
+  if (!el) return;
+
+  el.innerHTML = ""; // üst üste binmesin
+  new QRCode(el, {
+    text: getPageUrl(),
+    width: 128,
+    height: 128
+  });
+}
+
   loadJSON();
 })();
