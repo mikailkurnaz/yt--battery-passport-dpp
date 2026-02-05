@@ -76,7 +76,7 @@ function statusFor(val) {
       manufacturer: "Veri mevcut değil",
       model: "Çekiş Bataryası - NMC 811",
       batteryType: "Çekiş bataryası (Traction Battery)",
-      capacity: "Prototip model - alanına göre değişken",
+      capacity: "52 kWh",
       chemistry: "NMC 811 (80% Ni, 10% Mn, 10% Co)",
       manufactureDate: "2025",
       manufactureCountry: "Fransa",
@@ -98,7 +98,7 @@ function statusFor(val) {
       { name: "Diğer", percentage: 8, recyclable: false, source: "Veri mevcut değil", recycledContent: "Veri mevcut değil" },
     ],
     performance: {
-      energyDensity: "Prototip model - kapasite değişken",
+      energyDensity: "52 kWh",
       powerDensity: "Veri mevcut değil",
       cycleLife: "Veri mevcut değil",
       chargingTime: "Veri mevcut değil",
@@ -262,6 +262,8 @@ function statusFor(val) {
       kv("Kimya Yapısı", b.chemistry, "green") +
       kv("Üretim Yılı", b.manufactureDate, "purple") +
       kv("Üretim Ülkesi", b.manufactureCountry, "amber") +
+      kv("Model", "Veri mevcut değil", "blue") +
+      kv("Üretim Yeri Adresi", "Veri mevcut değil", "orange") +
       kv("Nominal Kapasite", b.capacity, "pink") +
       "</div>" +
       "</div>"
