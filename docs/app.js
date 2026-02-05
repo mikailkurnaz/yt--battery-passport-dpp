@@ -19,7 +19,18 @@ window.addEventListener("DOMContentLoaded", function () {
   function icon(name) {
     return '<i data-lucide="' + name + '" harmonize style="width:18px;height:18px;"></i>';
   }
+  
+function isMissing(val) {
+  const s = String(val ?? "").trim().toLowerCase();
+  return s === "" || s.includes("veri mevcut değil") || s.includes("mevcut değil");
+}
 
+function statusFor(val) {
+  return isMissing(val)
+    ? { pillClass: "warn", icon: "alert-circle" }
+    : { pillClass: "ok", icon: "check-circle" };
+}
+  
   function createIconsSafe() {
     try {
       if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
