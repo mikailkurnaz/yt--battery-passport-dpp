@@ -75,7 +75,7 @@ function statusFor(val) {
       id: "NMC-BAT-2025-FR-8105",
       manufacturer: "Veri mevcut değil",
       model: "Çekiş Bataryası - NMC 811",
-      batteryType: "Çekiş bataryası (Traction Battery)",
+      batteryType: "Lityum iyon Çekiş bataryası",
       capacity: "52 kWh",
       chemistry: "NMC 811 (80% Ni, 10% Mn, 10% Co)",
       manufactureDate: "2025",
@@ -254,20 +254,27 @@ function statusFor(val) {
       );
     }
 
-    return (
-      "<h2>Genel Bilgiler</h2>" +
-      '<div class="row">' +
-      '<div class="box">' +
-      kv("Üretici", b.manufacturer, "blue") +
-      kv("Kimya Yapısı", b.chemistry, "green") +
-      kv("Üretim Yılı", b.manufactureDate, "purple") +
-      kv("Üretim Ülkesi", b.manufactureCountry, "amber") +
-      kv("Model", "Veri mevcut değil", "blue") +
-      kv("Üretim Yeri Adresi", "Veri mevcut değil", "orange") +
-      kv("Nominal Kapasite", b.capacity, "pink") +
-      "</div>" +
-      "</div>"
-    );
+  return (
+  "<h2>Genel Bilgiler</h2>" +
+  '<div class="row">' +
+
+  // SOL TARAF
+  '<div class="box">' +
+  kv("Üretici", b.manufacturer, "blue") +
+  kv("Üretim Ülkesi", b.manufactureCountry, "amber") +
+  kv("Üretim Yılı", b.manufactureDate, "purple") +
+  kv("Üretim Yeri Adresi", "Veri mevcut değil", "orange") +
+   "</div>" +
+
+  // SAĞ TARAF
+  '<div class="box">' +
+  kv("Model", "Veri mevcut değil", "blue") +
+  kv("Kimya Yapısı", b.chemistry, "green") +
+  kv("Nominal Kapasite", b.capacity, "pink") +
+  "</div>" +
+
+  "</div>"
+);
   }
 
   function carbonHTML(d) {
