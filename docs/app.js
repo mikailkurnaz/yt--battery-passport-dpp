@@ -46,7 +46,7 @@ function statusFor(val) {
   var TABS = [
     { id: "overview", label: "Genel Bakış", icon: "battery" },
     { id: "carbon", label: "Karbon Ayak İzi", icon: "leaf" },
-    { id: "materials", label: "Malzeme Kompozisyonu", icon: "package" },
+    { id: "materials", label: "Malzeme", icon: "package" },
     { id: "performance", label: "Performans", icon: "zap" },
     { id: "circularity", label: "Döngüsel Ekonomi", icon: "recycle" },
     { id: "compliance", label: "Uyumluluk", icon: "shield" },
