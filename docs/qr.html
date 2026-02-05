@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QR Oluşturucu</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#0b1226; color:#e5e7eb; margin:0; padding:24px; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .card { background:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; }
+    h1 { margin:0 0 10px; font-size:22px; }
+    p { margin:6px 0 14px; color:#cbd5e1; }
+    .grid { display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .qrbox { background:#0b1226; border:1px solid #1f2937; border-radius:16px; padding:14px; }
+    .title { font-weight:800; margin-bottom:10px; }
+    canvas { background:#fff; border-radius:12px; padding:10px; display:block; width:220px; height:220px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+    a.btn { display:inline-block; padding:10px 12px; border-radius:12px; background:#3b82f6; color:#fff; text-decoration:none; font-weight:800; }
+    code { color:#93c5fd; }
+    .small { font-size:12px; color:#94a3b8; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>QR Kod Oluşturucu</h1>
+      <p>Bu sayfa otomatik olarak <b>GitHub Pages sitenin</b> linkinden QR üretir.</p>
+
+      <div class="grid">
+        <div class="qrbox">
+          <div class="title">Web Sayfası (Ana Sayfa)</div>
+          <canvas id="qrSite" width="220" height="220"></canvas>
+          <div class="small" id="siteUrl"></div>
+          <div class="row">
+            <a class="btn" id="dlSite" href="#" download="battery-passport-site.png">PNG İndir</a>
+          </div>
+        </div>
+
+        <div class="qrbox">
+          <div class="title">JSON (passport.json)</div>
+          <canvas id="qrJson" width="220" height="220"></canvas>
+          <div class="small" id="jsonUrl"></div>
+          <div class="row">
+            <a class="btn" id="dlJson" href="#" download="battery-passport-json.png">PNG İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:14px" class="small">
+        Not: Eğer JSON adresin <code>passport.json</code> değilse, bu dosyadaki <code>passport.json</code> kısmını kendi dosya adına göre değiştir.
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script>
+    function baseUrlFromHere() {
+      // qr.html hangi klasördeyse onun klasörünü alır: .../qr.html -> .../
+      return new URL("./", window.location.href).href;
+    }
+
+    function setDownload(canvasId, linkId, filename) {
+      const c = document.getElementById(canvasId);
+      const a = document.getElementById(linkId);
+      a.download = filename;
+      a.href = c.toDataURL("image/png");
+    }
+
+    const base = baseUrlFromHere();
+    const site = base; // ana sayfa
+    const json = base + "passport.json"; // aynı klasördeki passport.json
+
+    document.getElementById("siteUrl").textContent = site;
+    document.getElementById("jsonUrl").textContent = json;
+
+    QRCode.toCanvas(document.getElementById("qrSite"), site, { width: 220, margin: 1 }, function (err) {
+      if (!err) setDownload("qrSite", "dlSite", "battery-passport-site.png");
+    });
+
+    QRCode.toCanvas(document.getElementById("qrJson"), json, { width: 220, margin: 1 }, function (err) {
+      if (!err) setDownload("qrJson", "dlJson", "battery-passport-json.png");
+    });
+  </script>
+</body>
+</html>
