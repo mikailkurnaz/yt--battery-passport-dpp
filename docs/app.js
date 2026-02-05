@@ -187,8 +187,8 @@ function statusFor(val) {
       icon("battery") +
       "</div>" +
       "<div>" +
-      '<h1 class="title">Dijital Batarya Pasaportu</h1>' +
-      '<p class="subtitle">Tez Prototipi (EU 2023/1542 & ESPR)</p>' +
+      '<h1 class="title">DPP / Batarya Pasaportu</h1>' +
+      '<p class="subtitle">Tez Prototipi (Battery Regulation & ESPR)</p>' +
       '<p class="small">Görünüm: <b>' +
       esc(viewLabel(state.view)) +
       "</b></p>" +
