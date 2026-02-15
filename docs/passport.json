@@ -61,13 +61,10 @@
     }
   },
   "compliance": {
-    "euBatteryRegulation": "Uyumlu (Demo)",
-    "espr": "Uyumlu (Demo)",
-    "rohs": "Uyumlu (Demo)",
-    "reach": "Uyumlu (Demo)",
-    "ce": "Uyumlu (Demo)",
-    "testReport": "Uyumlu (Demo)",
-    "productCertificates": "Uyumlu (Demo)"
+    "rohs": " ",
+    "reach": " ",
+    "ce": " ",
+    "productCertificates": " "
   },
   "dynamic": {
     "performanceRecords": "Veri mevcut değil",
