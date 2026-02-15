@@ -5,7 +5,6 @@
     "status": "prototype",
     "lastUpdate": "Veri mevcut değil"
   },
-
   "battery": {
     "manufacturer": "Veri mevcut değil",
     "category": "Çekiş bataryası (Traction Battery)",
@@ -23,11 +22,9 @@
       "address": "Veri mevcut değil"
     }
   },
-
   "materials": {
     "criticalRawMaterials": "Veri mevcut değil",
     "hazardousSubstances": "Veri mevcut değil",
-
     "compositionList": [
       { "name": "Nikel (Ni)", "percentage": 42, "recyclable": true, "source": "Veri mevcut değil", "recycledContent": "Veri mevcut değil" },
       { "name": "Mangan (Mn)", "percentage": 8, "recyclable": true, "source": "Veri mevcut değil", "recycledContent": "Veri mevcut değil" },
@@ -37,19 +34,16 @@
       { "name": "Alüminyum", "percentage": 12, "recyclable": true, "source": "Veri mevcut değil", "recycledContent": "Veri mevcut değil" },
       { "name": "Diğer", "percentage": 8, "recyclable": false, "source": "Veri mevcut değil", "recycledContent": "Veri mevcut değil" }
     ],
-
     "detailedComposition": {
       "cathode": "Veri mevcut değil",
       "anode": "Veri mevcut değil",
       "electrolyte": "Veri mevcut değil"
     },
-
     "partsInfo": {
       "partNumbers": "Veri mevcut değil",
       "sparePartsContact": "Veri mevcut değil"
     }
   },
-
   "sustainability": {
     "carbonFootprint": {
       "total": 77,
@@ -67,7 +61,6 @@
     "recycledContentShare": "Veri mevcut değil",
     "renewableContentShare": "Veri mevcut değil"
   },
-
   "performance": {
     "nominalCapacity": "52 kWh",
     "voltage": {
@@ -80,7 +73,6 @@
     "cycleLife": "Veri mevcut değil",
     "energyEfficiency": "Veri mevcut değil"
   },
-
   "circularity": {
     "repairability": "Veri mevcut değil",
     "recyclability": "Veri mevcut değil",
@@ -93,7 +85,6 @@
     },
     "safety": "Veri mevcut değil"
   },
-
   "compliance": {
     "rohs": "Uyumlu (Demo)",
     "reach": "Uyumlu (Demo)",
@@ -101,12 +92,10 @@
     "testReport": "Veri mevcut değil",
     "productCertificates": "Veri mevcut değil"
   },
-
   "legalAndWaste": {
     "euDeclarationOfConformity": "Veri mevcut değil",
     "wastePreventionAndManagement": "Veri mevcut değil"
   },
-
   "dynamicData": {
     "performanceValues": "Veri mevcut değil",
     "soh": "Veri mevcut değil",
