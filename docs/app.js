@@ -45,6 +45,7 @@ function statusFor(val) {
 
   var TABS = [
     { id: "overview", label: "Genel Bakış", icon: "battery" },
+    { id: "dynamic", label: "Dinamik Veriler", icon: "activity" }
     { id: "carbon", label: "Karbon Ayak İzi", icon: "leaf" },
     { id: "materials", label: "Malzeme", icon: "package" },
     { id: "performance", label: "Performans", icon: "zap" },
@@ -52,12 +53,18 @@ function statusFor(val) {
     { id: "compliance", label: "Uyumluluk", icon: "shield" },
   ];
 
-  function allowedTabIds(view) {
-    if (view === "public") return ["overview", "carbon", "performance", "circularity", "dynamic"];
-    if (view === "professional")
-      return ["overview", "carbon", "materials", "performance", "circularity"];
-    return ["overview", "carbon", "materials", "performance", "circularity", "compliance"]; // denetleyici
+function allowedTabIds(view) {
+  if (view === "public") {
+    // Kamuya Açık: Genel Kimlik + Dinamik+ Sürdürülebilirlik + Performans + Döngüsellik
+    return ["overview", "dynamic", "carbon", "performance", "circularity"];
   }
+  if (view === "professional") {
+    // Profesyoneller: Kamu + Dinamik + Malzeme(detay) 
+    return ["overview", "dynamic", "carbon", "materials", "performance", "circularity"];
+  }
+  // Denetim Otoritesi: her şey
+  return ["overview", "dynamic", "carbon", "materials", "performance", "circularity", "compliance"];
+}
 
   function ensureTabAllowed() {
     var allowed = allowedTabIds(state.view);
