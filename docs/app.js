@@ -263,58 +263,41 @@
   }
 
   function renderCarbon(d) {
-    const c = d.carbonFootprint;
-    const total = Number(c.total || 0) || 0;
-    const stages = c.stages || {};
-    const stageNames = {
-      rawMaterial: "Hammadde",
-      manufacturing: "Üretim",
-      transport: "Taşıma",
-      endOfLife: "Ömür Sonu",
-    };
+  const c = d.carbonFootprint;
 
-    const bars = Object.keys(stageNames).map((k) => {
-      const val = Number(stages[k] || 0);
-      const pct = total ? Math.round((val / total) * 100) : 0;
-      return `
-        <div class="box">
-          <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;">
-            <div style="font-weight:900;">${stageNames[k]}</div>
-            <div class="small">${escapeHtml(val)} ${escapeHtml(c.unit)} (${pct}%)</div>
+  return `
+    <h2>Sürdürülebilirlik</h2>
+
+    <div class="box">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div class="pill ${pillStatusClass(c.total)}">${icon("leaf")} Karbon Ayak İzi (Toplam)</div>
+          <div style="font-size:28px;font-weight:1000;">
+            ${escapeHtml(c.total)} ${escapeHtml(c.unit)}
           </div>
-          <div class="bar"><div style="width:${pct}%"></div></div>
-        </div>`;
-    }).join("");
+        </div>
+        <div class="small" style="max-width:420px;">
+          Kaynak: ${escapeHtml(c.reference)}<br/>
+          ${escapeHtml(c.note)}
+        </div>
+      </div>
+    </div>
 
-    // İSTEDİĞİN: metodoloji kısmı yok
-    return `
-      <h2>Karbon Ayak İzi</h2>
+    <div class="row" style="margin-top:12px;">
       <div class="box">
-        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-          <div>
-            <div class="pill ${pillStatusClass(c.total)}">${icon("leaf")} Toplam</div>
-            <div style="font-size:28px;font-weight:1000;">${escapeHtml(c.total)} ${escapeHtml(c.unit)}</div>
-          </div>
-          <div class="small" style="max-width:420px;">
-            Kaynak: ${escapeHtml(c.reference)}<br/>
-            ${escapeHtml(c.note)}
-          </div>
+        <h3>Sürdürülebilirlik Bilgileri</h3>
+        ${kv("Sorumlu Tedarik Raporu", c.responsibleSourcingReport ?? "Veri mevcut değil")}
+        ${kv("Geri Dönüştürülmüş İçerik Payı", c.recycledContentShare ?? "Veri mevcut değil")}
+        ${kv("Yenilenebilir İçerik Payı", c.renewableContentShare ?? "Veri mevcut değil")}
+      </div>
+      <div class="box">
+        <h3>Not</h3>
+        <div class="small">
+          Bu alanlar demo amaçlıdır. Gerçek değerler tedarik zinciri ve üretim verileriyle güncellenir.
         </div>
       </div>
-
-      <div class="row" style="margin-top:12px;">
-        <div class="box">
-          <h3>Yaşam Döngüsü Dağılımı</h3>
-          <div style="display:grid;gap:12px;">${bars}</div>
-        </div>
-        <div class="box">
-          <h3>Not</h3>
-          <div class="small">
-            Bu değerler demo amaçlıdır. Gerçek üretim verisi ile güncellenecektir.
-          </div>
-        </div>
-      </div>
-    `;
+    </div>
+  `;
   }
 
   function renderMaterials(d) {
