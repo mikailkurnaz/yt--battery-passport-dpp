@@ -53,7 +53,7 @@ function statusFor(val) {
   ];
 
   function allowedTabIds(view) {
-    if (view === "public") return ["overview", "carbon", "performance", "circularity"];
+    if (view === "public") return ["overview", "carbon", "performance", "circularity", "dynamic"];
     if (view === "professional")
       return ["overview", "carbon", "materials", "performance", "circularity"];
     return ["overview", "carbon", "materials", "performance", "circularity", "compliance"]; // denetleyici
