@@ -14,15 +14,15 @@
   const VIEW = {
     public: {
       label: "Kamuya Açık",
-      tabs: ["overview", "carbon", "performance", "circularity", "dynamic"],
+      tabs: ["overview", "dynamic", "carbon", "performance", "circularity", "compliance"],
     },
     professional: {
       label: "Profesyonel",
-      tabs: ["overview", "carbon", "materials", "performance", "circularity", "dynamic"],
+      tabs: ["overview", "dynamic", "carbon", "materials", "performance", "circularity", "compliance"],
     },
     authority: {
       label: "Denetim Otoritesi",
-      tabs: ["overview", "carbon", "materials", "performance", "circularity", "compliance", "dynamic"],
+      tabs: ["overview", "dynamic", "carbon", "materials", "performance", "circularity", "compliance"],
     },
   };
 
