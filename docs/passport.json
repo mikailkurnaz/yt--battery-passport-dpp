@@ -66,6 +66,11 @@
     "ce": "Veri mevcut değil",
     "productCertificates": "Veri mevcut değil"
   },
+  "testReports": {
+  "available": false,
+  "lastUpdate": "Veri mevcut değil",
+  "lab": "Veri mevcut değil"
+}
   "dynamic": {
     "performanceRecords": "Veri mevcut değil",
     "soh": "Veri mevcut değil",
