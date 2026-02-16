@@ -22,7 +22,7 @@
     },
     authority: {
       label: "Denetim Otoritesi",
-      tabs: ["overview", "dynamic", "carbon", "materials", "performance", "circularity", "compliance"],
+      tabs: ["overview", "dynamic", "carbon", "materials", "performance", "circularity", "compliance", "testreports"],
     },
   };
 
@@ -34,6 +34,7 @@
     { id: "circularity", label: "Döngüsel Ekonomi", icon: "recycle" },
     { id: "compliance", label: "Uyumluluk", icon: "shield" },
     { id: "dynamic", label: "Dinamik Veriler", icon: "activity" },
+    { id: "testreports", label: "Test Raporu", icon: "file-text" },
   ];
 
   const state = {
@@ -376,7 +377,36 @@
       <div class="grid3">${cards}</div>
     `;
   }
+  function renderTestReports(d) {
+  const t = (d && d.testReports) ? d.testReports : {};
+  const available = !!t.available;
 
+  return (
+    "<h2>Test Raporları</h2>" +
+    '<div class="row">' +
+
+      '<div class="box">' +
+        '<h3 style="display:flex;gap:8px;align-items:center;">' +
+          icon("file-text") + " Test Raporu Durumu" +
+        "</h3>" +
+        kv("Durum", available ? "Mevcut (Denetim için)" : "Veri mevcut değil", available ? "ok" : "warn") +
+        kv("Son Güncelleme", t.lastUpdate || "Veri mevcut değil", "purple") +
+        kv("Laboratuvar", t.lab || "Veri mevcut değil", "amber") +
+        '<div class="small" style="margin-top:10px;opacity:.85;">Test raporu isimleri bu demo ekranda gösterilmez.</div>' +
+      "</div>" +
+
+      '<div class="box">' +
+        '<h3 style="display:flex;gap:8px;align-items:center;">' +
+          icon("shield") + " Not" +
+        "</h3>" +
+        '<div class="small" style="line-height:1.8;">' +
+          "Bu sekme sadece Denetim Otoritesi için görünür." +
+        "</div>" +
+      "</div>" +
+
+    "</div>"
+  );
+}
   function renderDynamic(d) {
     const dy = d.dynamic;
     return `
@@ -393,6 +423,7 @@
       <div class="small" style="margin-top:10px;">
         Not: Dinamik veriler demo amaçlıdır; gerçek kullanımda periyodik güncellenir.
       </div>
+      
     `;
   }
 
@@ -425,6 +456,7 @@
     else if (state.tab === "circularity") content = renderCircularity(d);
     else if (state.tab === "compliance") content = renderCompliance(d);
     else if (state.tab === "dynamic") content = renderDynamic(d);
+    else if (state.tab === "testreports") content = renderTestReports(d);
 
     const header = `
       <div class="top">
